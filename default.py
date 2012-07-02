@@ -172,7 +172,8 @@ def doSearch(fquery,fpage,isave=True):
 
 
           if len(match)==0:
-                xbmc.executebuiltin('XBMC.Notification("'+__language__(30003)+'","'+__language__(30004)+'",5000,"'+icon+'")')
+                #xbmc.executebuiltin('XBMC.Notification("'+__language__(30003)+'","'+__language__(30004)+'",5000,"'+icon+'")')
+                pass
           else:
                 if isave:
                         
@@ -247,8 +248,8 @@ elif mode=='down':
 
 else:
   addDir(__language__(30000)+' >','','search','','','DefaultFolder.png')
-  addDir(__language__(30001)' >','','searched','','','DefaultFolder.png')
-  addDir(__language__(30002)' >','','played','','','DefaultFolder.png')
+  addDir(__language__(30001)+' >','','searched','','','DefaultFolder.png')
+  addDir(__language__(30002)+' >','','played','','','DefaultFolder.png')
   
 
 
