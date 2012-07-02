@@ -55,7 +55,7 @@ def addDir(name, url, mode, cmd, desc, iconimage,icolor=None):
 
 # Get a search query from keyboard
 def readKbd():
-  kb = xbmc.Keyboard("",'Enter keywords to search', False)
+  kb = xbmc.Keyboard("",__language__(30006), False)
   kb.doModal()
   if (kb.isConfirmed() and len(kb.getText()) > 2):
     return kb.getText()
@@ -172,7 +172,7 @@ def doSearch(fquery,fpage,isave=True):
 
 
           if len(match)==0:
-                xbmc.executebuiltin('XBMC.Notification("Warning","No links found",5000,"'+icon+'")')
+                xbmc.executebuiltin('XBMC.Notification("'+__language__(30003)+'","'+__language__(30004)+'",5000,"'+icon+'")')
           else:
                 if isave:
                         
@@ -190,13 +190,13 @@ def doSearch(fquery,fpage,isave=True):
                         addLink(match3[idx][0]+match3[idx][1],"play", kusurl+match[idx], '','unknown', match2[idx])
 
                           
-                addDir('>> Next Page >>','','searchnext',fquery,str(fpage+1),'DefaultFolder.png',"FF80FF")
+                addDir('>> '+__language__(30005)+' >>','','searchnext',fquery,str(fpage+1),'DefaultFolder.png',"FF80FF")
                       
           xbmcplugin.endOfDirectory(int(sys.argv[1])) 
 
         except urllib2.URLError, e:
             dlg=xbmcgui.Dialog()
-            tdlg=dlg.ok('Error','Error '+str(e.code),'') 
+            tdlg=dlg.ok(__language__(30007),__language__(30007)+' '+str(e.code),'') 
             
 
 # Main ----------------------------------------------------
@@ -246,9 +246,9 @@ elif mode=='down':
 
 
 else:
-  addDir('Search >','','search','','','DefaultFolder.png')
-  addDir('Last Searched >','','searched','','','DefaultFolder.png')
-  addDir('Last Played >','','played','','','DefaultFolder.png')
+  addDir(__language__(30000)+' >','','search','','','DefaultFolder.png')
+  addDir(__language__(30001)' >','','searched','','','DefaultFolder.png')
+  addDir(__language__(30002)' >','','played','','','DefaultFolder.png')
   
 
 
